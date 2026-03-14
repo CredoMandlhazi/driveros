@@ -1,0 +1,367 @@
+/* ── Reusable component classes ──────────────────────────── */
+@layer components {
+
+  /* ── App shell ─────────────────────────────────────────── */
+  .app-root {
+    @apply w-full h-screen flex flex-col overflow-hidden bg-gray-100 dark:bg-black font-sans;
+  }
+
+  /* ── Buttons ───────────────────────────────────────────── */
+  .btn-gold {
+    @apply w-full py-4 rounded-[13px] text-base font-semibold text-white
+           bg-gold-gradient tracking-wide transition-opacity duration-150
+           active:opacity-80 cursor-pointer border-none;
+  }
+  .btn-gold-small {
+    @apply py-2 px-4 rounded-[9px] text-[13px] font-semibold text-white
+           bg-gold-gradient cursor-pointer border-none;
+  }
+  .btn-gold-loading {
+    @apply bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-default;
+  }
+  .btn-outline {
+    @apply w-full py-4 rounded-[13px] text-[15px] font-medium
+           bg-transparent border border-gray-300 dark:border-gray-600
+           text-gray-600 dark:text-gray-400 cursor-pointer;
+  }
+  .btn-text {
+    @apply border-none bg-transparent text-gold text-sm font-medium
+           py-1 cursor-pointer;
+  }
+  .btn-back {
+    @apply w-[38px] h-[38px] rounded-full flex-shrink-0 flex items-center
+           justify-center bg-gray-100 dark:bg-gray-800 border-none cursor-pointer;
+  }
+  .btn-icon {
+    @apply w-11 h-11 rounded-xl flex items-center justify-center
+           bg-white dark:bg-gray-900 border-none cursor-pointer
+           shadow-map dark:shadow-map-dark;
+  }
+  .btn-danger {
+    @apply w-full py-4 rounded-[13px] text-[15px] font-semibold
+           bg-white dark:bg-gray-900 border border-brand-red
+           text-brand-red cursor-pointer;
+  }
+
+  /* ── Inputs ────────────────────────────────────────────── */
+  .f-input {
+    @apply w-full px-[14px] py-[14px] rounded-xl text-[15px]
+           bg-gray-100 dark:bg-gray-800
+           border border-gray-200 dark:border-gray-700
+           text-gray-900 dark:text-white font-sans;
+  }
+  .f-select {
+    @apply w-full pl-[14px] pr-10 py-[14px] rounded-xl text-[15px]
+           bg-gray-100 dark:bg-gray-800
+           border border-gray-200 dark:border-gray-700
+           text-gray-900 dark:text-white font-sans appearance-none;
+  }
+
+  /* ── Cards ─────────────────────────────────────────────── */
+  .card {
+    @apply bg-white dark:bg-gray-900 rounded-2xl p-4
+           shadow-card dark:shadow-card-dark;
+  }
+  .card-gold {
+    @apply rounded-2xl p-4 bg-gold-gradient;
+  }
+
+  /* ── Divider ───────────────────────────────────────────── */
+  .divider {
+    @apply h-px bg-gray-200 dark:bg-gray-700;
+  }
+
+  /* ── Toggle ────────────────────────────────────────────── */
+  .toggle-track {
+    @apply relative w-[46px] h-[26px] rounded-full cursor-pointer
+           transition-colors duration-200 flex-shrink-0;
+  }
+  .toggle-track-on  { @apply bg-gold-gradient; }
+  .toggle-track-off { @apply bg-gray-300 dark:bg-gray-600; }
+  .toggle-thumb {
+    @apply absolute top-[3px] w-5 h-5 rounded-full bg-white
+           transition-all duration-200;
+  }
+  .toggle-thumb-on  { @apply left-[23px]; }
+  .toggle-thumb-off { @apply left-[3px]; }
+
+  /* ── Modal overlay ─────────────────────────────────────── */
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/65 z-[200] flex items-end justify-center;
+  }
+  .modal-sheet {
+    @apply bg-white dark:bg-gray-900 rounded-t-[20px] w-full
+           max-h-[90vh] overflow-y-auto pb-8 animate-slide-up;
+  }
+  .modal-handle {
+    @apply w-9 h-1 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto mt-[14px];
+  }
+
+  /* ── Screen header ─────────────────────────────────────── */
+  .screen-header {
+    @apply flex items-center px-5 pt-[18px] pb-3 gap-3 flex-shrink-0
+           bg-white dark:bg-gray-900
+           border-b border-gray-200 dark:border-gray-700;
+  }
+  .screen-title {
+    @apply flex-1 text-[17px] font-bold text-gray-900 dark:text-white
+           tracking-tight;
+  }
+
+  /* ── OTP inputs ────────────────────────────────────────── */
+  .otp-input {
+    @apply w-11 h-[54px] text-center text-xl font-bold
+           bg-gray-100 dark:bg-gray-800 rounded-xl
+           border border-gray-200 dark:border-gray-700
+           text-gray-900 dark:text-white font-sans;
+  }
+  .otp-input-filled {
+    @apply border-gold;
+  }
+
+  /* ── Section label ─────────────────────────────────────── */
+  .section-label {
+    @apply text-[12px] font-semibold text-gray-400 dark:text-gray-500
+           tracking-[0.5px] uppercase mb-[10px] pl-1;
+  }
+
+  /* ── Badge ─────────────────────────────────────────────── */
+  .badge {
+    @apply text-[10px] font-bold text-gold bg-amber-50
+           rounded-md px-2 py-0.5 tracking-wide;
+  }
+
+  /* ── Splash ────────────────────────────────────────────── */
+  .splash-root {
+    @apply flex-1 flex flex-col items-center justify-center
+           bg-gray-100 dark:bg-black transition-opacity duration-500;
+  }
+
+  /* ── Welcome ───────────────────────────────────────────── */
+  .welcome-root {
+    @apply flex-1 bg-black flex flex-col relative overflow-hidden;
+  }
+  .welcome-gradient {
+    @apply absolute inset-0;
+    background: linear-gradient(160deg, #1a1a1a 0%, #0a0a0a 100%);
+  }
+  .welcome-cta {
+    @apply absolute bottom-0 left-0 right-0 px-6 pb-11 pt-7;
+    background: linear-gradient(0deg, rgba(0,0,0,0.98) 0%, transparent 100%);
+  }
+
+  /* ── Auth pages ────────────────────────────────────────── */
+  .auth-root {
+    @apply flex-1 bg-white dark:bg-gray-900 flex flex-col;
+  }
+  .auth-header {
+    @apply px-6 pt-6 flex-shrink-0;
+  }
+  .auth-body {
+    @apply flex-1 px-6 pb-6 overflow-y-auto;
+  }
+  .auth-progress-bar {
+    @apply h-[3px] bg-gray-200 dark:bg-gray-700 rounded-sm overflow-hidden;
+  }
+  .auth-progress-fill {
+    @apply h-full bg-gold-gradient rounded-sm transition-all duration-[400ms];
+  }
+  .field-label {
+    @apply text-[13px] font-semibold text-gray-600 dark:text-gray-400 mb-[7px];
+  }
+
+  /* ── Home / Map ────────────────────────────────────────── */
+  .home-root {
+    @apply flex-1 relative overflow-hidden flex flex-col bg-gray-100 dark:bg-gray-950;
+  }
+  .map-container {
+    @apply absolute inset-0;
+  }
+  .gear-btn {
+    @apply absolute top-4 right-4 z-20 w-11 h-11 rounded-xl
+           flex items-center justify-center
+           bg-white dark:bg-gray-900 border-none cursor-pointer
+           shadow-map dark:shadow-map-dark;
+  }
+
+  /* ── Bottom sheet ──────────────────────────────────────── */
+  .bottom-sheet-wrapper {
+    @apply absolute bottom-0 left-0 right-0 z-10;
+  }
+  .bottom-sheet {
+    @apply bg-white dark:bg-gray-900 rounded-t-[20px]
+           shadow-sheet dark:shadow-sheet-dark
+           max-h-[56vh] flex flex-col animate-slide-up;
+  }
+  .sheet-handle {
+    @apply w-9 h-1 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto mb-[14px];
+  }
+  .sheet-body {
+    @apply flex-1 overflow-y-auto px-5 pb-4;
+  }
+
+  /* ── Bottom nav ────────────────────────────────────────── */
+  .bottom-nav {
+    @apply bg-white dark:bg-gray-900
+           border-t border-gray-200 dark:border-gray-700
+           flex justify-around py-[10px] pb-4;
+  }
+  .nav-btn {
+    @apply flex flex-col items-center gap-[3px]
+           bg-transparent border-none min-w-[52px] cursor-pointer;
+  }
+  .nav-label {
+    @apply text-[10px] font-medium;
+  }
+  .nav-label-active {
+    @apply font-bold;
+  }
+
+  /* ── Search bar ────────────────────────────────────────── */
+  .search-bar {
+    @apply flex items-center gap-[10px] bg-white dark:bg-gray-900
+           rounded-[13px] px-4 py-[13px]
+           shadow-map dark:shadow-map-dark;
+  }
+  .search-input {
+    @apply flex-1 border-none bg-transparent text-[15px]
+           text-gray-900 dark:text-white placeholder-gray-400 font-sans;
+  }
+  .search-dropdown {
+    @apply absolute top-full left-0 right-0 z-[1000] mt-1
+           rounded-xl overflow-hidden
+           bg-white dark:bg-gray-900
+           border border-gray-200 dark:border-gray-700
+           shadow-[0_8px_32px_rgba(0,0,0,0.18)];
+  }
+  .search-result-row {
+    @apply flex items-center gap-3 px-4 py-3 cursor-pointer
+           hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors;
+  }
+
+  /* ── SOS overlays ──────────────────────────────────────── */
+  .sos-confirm-overlay {
+    @apply absolute inset-0 bg-black/65 z-50 flex items-center
+           justify-center p-6;
+  }
+  .sos-confirm-card {
+    @apply bg-white dark:bg-gray-900 rounded-2xl p-7 w-full text-center;
+  }
+  .sos-active-banner {
+    @apply absolute top-4 left-4 right-[70px] z-20;
+  }
+  .sos-active-inner {
+    @apply bg-brand-red rounded-xl px-4 py-3 flex items-center gap-[10px]
+           shadow-sos;
+  }
+  .sos-resolved-inner {
+    @apply rounded-xl px-4 py-3 flex items-center gap-[10px];
+    background: #1C3F2A;
+  }
+  .sos-pulse {
+    @apply w-[10px] h-[10px] rounded-full bg-white flex-shrink-0 animate-pulse2;
+  }
+
+  /* ── Wallet modals ─────────────────────────────────────── */
+  .wallet-preset-btn {
+    @apply p-[14px] rounded-xl text-base font-bold cursor-pointer
+           border transition-colors;
+  }
+  .wallet-preset-active {
+    @apply border-gold bg-amber-50 text-gold;
+  }
+  .wallet-preset-inactive {
+    @apply border-gray-200 dark:border-gray-700
+           bg-white dark:bg-gray-900
+           text-gray-900 dark:text-white;
+  }
+  .payfast-badge {
+    @apply flex items-center gap-[10px] p-3 rounded-xl mb-5
+           bg-gray-100 dark:bg-gray-800
+           border border-gray-200 dark:border-gray-700;
+  }
+  .success-icon-wrap {
+    @apply w-[72px] h-[72px] rounded-full flex items-center justify-center
+           mx-auto mb-5;
+    background: #E8F5E9;
+  }
+
+  /* ── Partner row ───────────────────────────────────────── */
+  .partner-row {
+    @apply flex items-center gap-[14px] p-4
+           bg-white dark:bg-gray-900 rounded-2xl mb-[10px]
+           shadow-card dark:shadow-card-dark;
+  }
+  .partner-icon {
+    @apply w-[46px] h-[46px] rounded-xl flex items-center justify-center
+           text-[22px] flex-shrink-0
+           bg-gray-100 dark:bg-gray-800;
+  }
+
+  /* ── Settings rows ─────────────────────────────────────── */
+  .settings-row {
+    @apply flex items-center justify-between py-[13px]
+           border-b border-gray-200 dark:border-gray-700;
+  }
+  .settings-row-last {
+    @apply flex items-center justify-between py-[13px];
+  }
+
+  /* ── Compliance progress ───────────────────────────────── */
+  .compliance-bar-track {
+    @apply h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden mb-2;
+  }
+  .compliance-bar-fill {
+    @apply h-full rounded-full;
+  }
+
+  /* ── Tab bar (Association) ─────────────────────────────── */
+  .tab-bar {
+    @apply flex bg-white dark:bg-gray-900
+           border-b border-gray-200 dark:border-gray-700 flex-shrink-0;
+  }
+  .tab-btn {
+    @apply flex-1 py-[13px] border-none bg-transparent text-[13px]
+           font-semibold cursor-pointer transition-colors;
+  }
+  .tab-btn-active {
+    @apply text-gray-900 dark:text-white border-b-2 border-gold;
+  }
+  .tab-btn-inactive {
+    @apply text-gray-400 dark:text-gray-500 border-b-2 border-transparent;
+  }
+
+  /* ── Earnings chart bar ────────────────────────────────── */
+  .chart-bar {
+    @apply flex-1 flex flex-col items-center gap-1;
+  }
+  .chart-bar-fill {
+    @apply w-full rounded-[4px];
+  }
+
+  /* ── Notification item ─────────────────────────────────── */
+  .notif-row {
+    @apply flex gap-3 p-[14px] mb-2 rounded-[14px] cursor-pointer
+           shadow-card dark:shadow-card-dark;
+  }
+  .notif-dot {
+    @apply w-2 h-2 rounded-full bg-gold flex-shrink-0 mt-1;
+  }
+
+  /* ── FAQ accordion ─────────────────────────────────────── */
+  .faq-answer {
+    @apply text-[13px] leading-relaxed mt-3 pt-3
+           border-t border-gray-200 dark:border-gray-700
+           text-gray-600 dark:text-gray-400;
+  }
+
+  /* ── Profile doc row ───────────────────────────────────── */
+  .doc-row {
+    @apply flex items-center gap-[14px] p-4
+           bg-white dark:bg-gray-900 rounded-2xl mb-[10px]
+           shadow-card dark:shadow-card-dark;
+  }
+  .doc-icon {
+    @apply w-10 h-10 rounded-[10px] flex items-center justify-center flex-shrink-0;
+  }
+}
